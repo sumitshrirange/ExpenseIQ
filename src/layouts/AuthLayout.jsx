@@ -1,6 +1,7 @@
 import React from "react";
 import CARD_2 from "../assets/images/card2.png";
 import { LuTrendingUpDown } from "react-icons/lu";
+import ExpenseLogo from "../assets/images/expense-transparent-logo.png";
 
 const StatsInCard = ({ icon, label, value, color }) => {
   return (
@@ -22,9 +23,17 @@ const AuthLayout = ({ children }) => {
   return (
     <div className="flex">
       <div className="w-screen h-screen md:w-[60vw] px-12 pt-8 pb-14">
-        <h2 className="text-xl font-medium text-black flex">
-          Expense <p className="text-primary font-semibold">IQ</p>
-        </h2>
+        <div className="flex items-center">
+          <img
+            src={ExpenseLogo}
+            className="w-10"
+            alt="Expense Tracker Web App Logo"
+            loading="lazy"
+          />
+          <h2 className="text-xl font-medium text-black flex">
+            Expense <p className="text-primary font-semibold">IQ</p>
+          </h2>
+        </div>
         {children}
       </div>
 
