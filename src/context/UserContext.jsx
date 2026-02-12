@@ -2,7 +2,7 @@ import { Children, createContext, useState } from "react";
 
 export const UserContext = createContext();
 
-const UserProvider = ({ Children }) => {
+const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   // Function to update user data
@@ -17,7 +17,7 @@ const UserProvider = ({ Children }) => {
 
   return (
     <UserContext.Provider value={{ user, updateUser, clearUser }}>
-      {Children}
+      {children}
     </UserContext.Provider>
   );
 };
