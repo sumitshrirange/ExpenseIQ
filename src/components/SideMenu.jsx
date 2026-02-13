@@ -38,7 +38,7 @@ const SideMenu = ({ activeMenu }) => {
             fullName={user?.fullName}
             width="w-20"
             height="h-20"
-            style="text-2xl"
+            style="text-3xl"
           />
         )}
 
