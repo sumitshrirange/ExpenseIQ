@@ -24,14 +24,14 @@ const CustomBarChart = ({ data = [] }) => {
           <CartesianGrid stroke="none" />
 
           <XAxis
-            dataKey="category"
+            dataKey="month"
             tick={{ fontSize: 12, fill: "#555" }}
             stroke="none"
           />
 
           <YAxis tick={{ fontSize: 12, fill: "#555" }} stroke="none" />
 
-          <Tooltip content={CustomTooltip} />
+          <Tooltip content={<CustomTooltip />} />
 
           <Bar dataKey="amount" radius={[10, 10, 0, 0]} />
         </BarChart>
