@@ -129,7 +129,7 @@ function Expense() {
 
   return (
     <DashboardLayout activeMenu="Expense">
-      <div className="my-5 mx-5 md:pb-0 pb-5">
+      <div className="my-5 mx-5 xl:pb-0 pb-5">
         <div className="grid grid-cols-1 gap-6">
           <div className="">
             <ExpenseOverview
