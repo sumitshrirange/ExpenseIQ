@@ -17,7 +17,7 @@ const CustomPieChart = ({
   }));
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width="100%" height={330}>
       <PieChart>
         <Pie
           data={coloredData}
@@ -31,7 +31,7 @@ const CustomPieChart = ({
         />
 
         <Tooltip content={CustomTooltip} />
-        <Legend content={CustomLegend} />
+        <Legend content={CustomLegend} wrapperStyle={{ marginTop: 25 }} />
 
         {showTextAnchor && (
           <>

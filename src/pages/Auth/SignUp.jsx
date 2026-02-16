@@ -121,12 +121,9 @@ function SignUp() {
             SIGN-UP
           </button>
 
-          <p>
+          <p className="text-sm">
             Already have an account?{" "}
-            <Link
-              to="/login"
-              className="font-medium text-primary underline text-sm"
-            >
+            <Link to="/login" className="font-medium text-primary underline">
               Login
             </Link>
           </p>
