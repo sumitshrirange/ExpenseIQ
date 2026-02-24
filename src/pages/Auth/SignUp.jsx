@@ -8,6 +8,7 @@ import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import { UserContext } from "../../context/UserContext";
 import uploadImage from "../../utils/uploadImage";
+import { PulseLoader } from "react-spinners";
 
 function SignUp() {
   const [profilePic, setProfilePic] = useState(null);
@@ -15,6 +16,7 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { updateUser } = useContext(UserContext);
 
@@ -42,6 +44,8 @@ function SignUp() {
 
     // Sign-Up API call
     try {
+      setIsLoading(true);
+
       // Upload image if present
       let profileImageUrl = "";
 
@@ -71,6 +75,8 @@ function SignUp() {
       } else {
         setError("Something went wrong! Please try again.");
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -118,7 +124,11 @@ function SignUp() {
             type="submit"
             className="w-full text-sm font-medium text-white bg-violet-500 shadow-lg shadow-purple-600/5 p-2.5 rounded-md my-2 hover:bg-purple-600/15 hover:text-purple-600 cursor-pointer duration-150"
           >
-            SIGN-UP
+            {isLoading ? (
+              <PulseLoader size={10} color={"#fff"} />
+            ) : (
+              <>SIGN-UP</>
+            )}
           </button>
 
           <p className="text-sm">

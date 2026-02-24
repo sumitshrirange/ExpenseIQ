@@ -6,11 +6,13 @@ import { validateEmail } from "../../utils/helper";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import { UserContext } from "../../context/UserContext";
+import { PulseLoader } from "react-spinners";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { updateUser } = useContext(UserContext);
 
@@ -34,6 +36,8 @@ function Login() {
 
     // Login API call
     try {
+      setIsLoading(true);
+
       const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
         email,
         password,
@@ -52,6 +56,8 @@ function Login() {
       } else {
         setError("Something went wrong! Please try again.");
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -86,7 +92,7 @@ function Login() {
             type="submit"
             className="w-full text-sm font-medium text-white bg-violet-500 shadow-lg shadow-purple-600/5 p-2.5 rounded-md my-2 hover:bg-purple-600/15 hover:text-purple-600 cursor-pointer duration-150"
           >
-            LOGIN
+            {isLoading ? <PulseLoader size={10} color={"#fff"} /> : <>LOGIN</>}
           </button>
 
           <p className="text-sm">
